@@ -86,12 +86,12 @@ func (w SlackWriter) Write(scanResults []models.ScanResult) error {
 #			}
 			return nil
 		}
-		notify := func(err error, t time.Duration) {
-			log.Warn("Retrying in ", t)
-		}
-		if err := backoff.RetryNotify(f, backoff.NewExponentialBackOff(), notify); err != nil {
-			return fmt.Errorf("HTTP Error: %s", err)
-		}
+#		notify := func(err error, t time.Duration) {
+#			log.Warn("Retrying in ", t)
+#		}
+#		if err := backoff.RetryNotify(f, backoff.NewExponentialBackOff(), notify); err != nil {
+#			return fmt.Errorf("HTTP Error: %s", err)
+#		}
 	}
 	return nil
 }
