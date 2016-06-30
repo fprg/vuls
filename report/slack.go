@@ -78,12 +78,12 @@ func (w SlackWriter) Write(scanResults []models.ScanResult) error {
 		f := func() (err error) {
 			resp, body, errs := gorequest.New().Proxy(config.Conf.HTTPProxy).Post(conf.HookURL).
 				Send(string(jsonBody)).End()
-			if resp.StatusCode != 200 {
-				log.Errorf("Resonse body: %s", body)
-				if len(errs) > 0 {
-					return errs[0]
-				}
-			}
+#			if resp.StatusCode != 200 {
+#				log.Errorf("Resonse body: %s", body)
+#				if len(errs) > 0 {
+#					return errs[0]
+#				}
+#			}
 			return nil
 		}
 		notify := func(err error, t time.Duration) {
